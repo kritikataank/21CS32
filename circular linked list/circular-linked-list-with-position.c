@@ -306,7 +306,7 @@ void search_sorted()
         }
         temp = temp->next;
         count = count + 1;
-        while (temp->data<=val)
+        while (temp->data<=val && temp!=start)
         {
             if (temp->data==val)
             {
@@ -387,12 +387,15 @@ void display()
     }
     else
     {
-        do
+        while(temp->next!=start)
         {
-            printf("\t %d", temp->data);
-            temp = temp->next;
-        }while(temp->next!=start);
-        printf("\t %d", temp->data);
+           if(temp->next!=start)
+           {
+               printf("\t%d",temp->data);
+               temp=temp->next;
+           }
+        }
+        printf("\t%d",temp->data);
     }
 }
 
